@@ -1,18 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class VectorSum : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class VectorSum : MonoBehaviour {
+    public GameObject secondCube;
+    public Vector3 toSecondCubeVector;
+    public Vector3 endVector;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [ReadOnly]
+    public Vector3 sumVector;
+
+    private void OnDrawGizmos() {
+        secondCube.transform.position = toSecondCubeVector;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, toSecondCubeVector);
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(toSecondCubeVector, endVector);
+        Gizmos.color = Color.blue;
+        sumVector = toSecondCubeVector + endVector;
+        Gizmos.DrawLine(transform.position, sumVector);
     }
 }

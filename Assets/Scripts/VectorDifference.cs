@@ -1,22 +1,20 @@
 ﻿using UnityEngine;
 
-public class VectorSum : MonoBehaviour {
+public class VectorDifference : MonoBehaviour
+{
     public GameObject secondCube;
     public Vector3 toSecondCubeVector;
-    public Vector3 endVector;
 
     [ReadOnly]
-    public Vector3 sumVector;
+    public Vector3 differenceVector;
 
     private void OnDrawGizmos() {
         secondCube.transform.position = toSecondCubeVector;
 
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, toSecondCubeVector);
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(toSecondCubeVector, endVector);
         Gizmos.color = Color.blue;
-        sumVector = toSecondCubeVector + endVector;
-        Gizmos.DrawLine(transform.position, sumVector);
+        differenceVector = toSecondCubeVector - transform.position;
+        Gizmos.DrawRay(transform.position, differenceVector);
     }
 }

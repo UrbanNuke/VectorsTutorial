@@ -13,3 +13,5 @@ Linear algebra for game developers [EN](http://blog.wolfire.com/2009/07/linear-a
 * Dot Product
 * Cross Product
 * Vector magnitude
+
+v 0.1.0
